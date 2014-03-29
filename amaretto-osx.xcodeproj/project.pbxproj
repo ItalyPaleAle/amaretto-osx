@@ -1,0 +1,522 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D2957AE618E76E0E00848925 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2957AE518E76E0E00848925 /* Cocoa.framework */; };
+		D2957AF018E76E0E00848925 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D2957AEE18E76E0E00848925 /* InfoPlist.strings */; };
+		D2957AF218E76E0E00848925 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D2957AF118E76E0E00848925 /* main.m */; };
+		D2957AF618E76E0E00848925 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = D2957AF418E76E0E00848925 /* Credits.rtf */; };
+		D2957AF918E76E0E00848925 /* AMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D2957AF818E76E0E00848925 /* AMAppDelegate.m */; };
+		D2957AFC18E76E0E00848925 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2957AFA18E76E0E00848925 /* MainMenu.xib */; };
+		D2957AFE18E76E0E00848925 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2957AFD18E76E0E00848925 /* Images.xcassets */; };
+		D2957B0518E76E0E00848925 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2957B0418E76E0E00848925 /* XCTest.framework */; };
+		D2957B0618E76E0E00848925 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2957AE518E76E0E00848925 /* Cocoa.framework */; };
+		D2957B0E18E76E0E00848925 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D2957B0C18E76E0E00848925 /* InfoPlist.strings */; };
+		D2957B1018E76E0E00848925 /* amaretto_osxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D2957B0F18E76E0E00848925 /* amaretto_osxTests.m */; };
+		D2957B1B18E7718F00848925 /* AMUIController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2957B1A18E7718F00848925 /* AMUIController.m */; };
+		D2957B1D18E7729500848925 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2957B1C18E7729500848925 /* WebKit.framework */; };
+		D2957B1F18E772B500848925 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2957B1E18E772B500848925 /* JavaScriptCore.framework */; };
+		D2957B2418E7743300848925 /* AMJSCallback.m in Sources */ = {isa = PBXBuildFile; fileRef = D2957B2218E7743300848925 /* AMJSCallback.m */; };
+		D2957B2518E7743300848925 /* JavaScriptCore+AMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D2957B2318E7743300848925 /* JavaScriptCore+AMAdditions.m */; };
+		D2957B2C18E77DF100848925 /* AMCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = D2957B2B18E77DF100848925 /* AMCommon.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D2957B0718E76E0E00848925 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D2957ADA18E76E0E00848925 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D2957AE118E76E0E00848925;
+			remoteInfo = "amaretto-osx";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D2957AE218E76E0E00848925 /* amaretto-osx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "amaretto-osx.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2957AE518E76E0E00848925 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		D2957AE818E76E0E00848925 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		D2957AE918E76E0E00848925 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		D2957AEA18E76E0E00848925 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D2957AED18E76E0E00848925 /* amaretto-osx-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "amaretto-osx-Info.plist"; sourceTree = "<group>"; };
+		D2957AEF18E76E0E00848925 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D2957AF118E76E0E00848925 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D2957AF318E76E0E00848925 /* amaretto-osx-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "amaretto-osx-Prefix.pch"; sourceTree = "<group>"; };
+		D2957AF518E76E0E00848925 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		D2957AF718E76E0E00848925 /* AMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMAppDelegate.h; sourceTree = "<group>"; };
+		D2957AF818E76E0E00848925 /* AMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AMAppDelegate.m; sourceTree = "<group>"; };
+		D2957AFB18E76E0E00848925 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		D2957AFD18E76E0E00848925 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D2957B0318E76E0E00848925 /* amaretto-osxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "amaretto-osxTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2957B0418E76E0E00848925 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		D2957B0B18E76E0E00848925 /* amaretto-osxTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "amaretto-osxTests-Info.plist"; sourceTree = "<group>"; };
+		D2957B0D18E76E0E00848925 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D2957B0F18E76E0E00848925 /* amaretto_osxTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = amaretto_osxTests.m; sourceTree = "<group>"; };
+		D2957B1918E7718F00848925 /* AMUIController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMUIController.h; sourceTree = "<group>"; };
+		D2957B1A18E7718F00848925 /* AMUIController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMUIController.m; sourceTree = "<group>"; };
+		D2957B1C18E7729500848925 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		D2957B1E18E772B500848925 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		D2957B2018E7743300848925 /* AMJSCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMJSCallback.h; sourceTree = "<group>"; };
+		D2957B2118E7743300848925 /* JavaScriptCore+AMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JavaScriptCore+AMAdditions.h"; sourceTree = "<group>"; };
+		D2957B2218E7743300848925 /* AMJSCallback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMJSCallback.m; sourceTree = "<group>"; };
+		D2957B2318E7743300848925 /* JavaScriptCore+AMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JavaScriptCore+AMAdditions.m"; sourceTree = "<group>"; };
+		D2957B2A18E77DF100848925 /* AMCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMCommon.h; sourceTree = "<group>"; };
+		D2957B2B18E77DF100848925 /* AMCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMCommon.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D2957ADF18E76E0E00848925 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2957B1F18E772B500848925 /* JavaScriptCore.framework in Frameworks */,
+				D2957B1D18E7729500848925 /* WebKit.framework in Frameworks */,
+				D2957AE618E76E0E00848925 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2957B0018E76E0E00848925 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2957B0618E76E0E00848925 /* Cocoa.framework in Frameworks */,
+				D2957B0518E76E0E00848925 /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D2957AD918E76E0E00848925 = {
+			isa = PBXGroup;
+			children = (
+				D2957AEB18E76E0E00848925 /* amaretto-osx */,
+				D2957B0918E76E0E00848925 /* amaretto-osxTests */,
+				D2957AE418E76E0E00848925 /* Frameworks */,
+				D2957AE318E76E0E00848925 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D2957AE318E76E0E00848925 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D2957AE218E76E0E00848925 /* amaretto-osx.app */,
+				D2957B0318E76E0E00848925 /* amaretto-osxTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D2957AE418E76E0E00848925 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D2957B1E18E772B500848925 /* JavaScriptCore.framework */,
+				D2957B1C18E7729500848925 /* WebKit.framework */,
+				D2957AE518E76E0E00848925 /* Cocoa.framework */,
+				D2957B0418E76E0E00848925 /* XCTest.framework */,
+				D2957AE718E76E0E00848925 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D2957AE718E76E0E00848925 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D2957AE818E76E0E00848925 /* AppKit.framework */,
+				D2957AE918E76E0E00848925 /* CoreData.framework */,
+				D2957AEA18E76E0E00848925 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		D2957AEB18E76E0E00848925 /* amaretto-osx */ = {
+			isa = PBXGroup;
+			children = (
+				D2957B2618E7743900848925 /* UIController */,
+				D2957AF718E76E0E00848925 /* AMAppDelegate.h */,
+				D2957AF818E76E0E00848925 /* AMAppDelegate.m */,
+				D2957B2A18E77DF100848925 /* AMCommon.h */,
+				D2957B2B18E77DF100848925 /* AMCommon.m */,
+				D2957AFA18E76E0E00848925 /* MainMenu.xib */,
+				D2957AFD18E76E0E00848925 /* Images.xcassets */,
+				D2957AEC18E76E0E00848925 /* Supporting Files */,
+			);
+			path = "amaretto-osx";
+			sourceTree = "<group>";
+		};
+		D2957AEC18E76E0E00848925 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D2957AED18E76E0E00848925 /* amaretto-osx-Info.plist */,
+				D2957AEE18E76E0E00848925 /* InfoPlist.strings */,
+				D2957AF118E76E0E00848925 /* main.m */,
+				D2957AF318E76E0E00848925 /* amaretto-osx-Prefix.pch */,
+				D2957AF418E76E0E00848925 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D2957B0918E76E0E00848925 /* amaretto-osxTests */ = {
+			isa = PBXGroup;
+			children = (
+				D2957B0F18E76E0E00848925 /* amaretto_osxTests.m */,
+				D2957B0A18E76E0E00848925 /* Supporting Files */,
+			);
+			path = "amaretto-osxTests";
+			sourceTree = "<group>";
+		};
+		D2957B0A18E76E0E00848925 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D2957B0B18E76E0E00848925 /* amaretto-osxTests-Info.plist */,
+				D2957B0C18E76E0E00848925 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D2957B2618E7743900848925 /* UIController */ = {
+			isa = PBXGroup;
+			children = (
+				D2957B1918E7718F00848925 /* AMUIController.h */,
+				D2957B1A18E7718F00848925 /* AMUIController.m */,
+				D2957B2018E7743300848925 /* AMJSCallback.h */,
+				D2957B2218E7743300848925 /* AMJSCallback.m */,
+				D2957B2118E7743300848925 /* JavaScriptCore+AMAdditions.h */,
+				D2957B2318E7743300848925 /* JavaScriptCore+AMAdditions.m */,
+			);
+			name = UIController;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D2957AE118E76E0E00848925 /* amaretto-osx */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D2957B1318E76E0E00848925 /* Build configuration list for PBXNativeTarget "amaretto-osx" */;
+			buildPhases = (
+				D2957ADE18E76E0E00848925 /* Sources */,
+				D2957ADF18E76E0E00848925 /* Frameworks */,
+				D2957AE018E76E0E00848925 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "amaretto-osx";
+			productName = "amaretto-osx";
+			productReference = D2957AE218E76E0E00848925 /* amaretto-osx.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D2957B0218E76E0E00848925 /* amaretto-osxTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D2957B1618E76E0E00848925 /* Build configuration list for PBXNativeTarget "amaretto-osxTests" */;
+			buildPhases = (
+				D2957AFF18E76E0E00848925 /* Sources */,
+				D2957B0018E76E0E00848925 /* Frameworks */,
+				D2957B0118E76E0E00848925 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D2957B0818E76E0E00848925 /* PBXTargetDependency */,
+			);
+			name = "amaretto-osxTests";
+			productName = "amaretto-osxTests";
+			productReference = D2957B0318E76E0E00848925 /* amaretto-osxTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D2957ADA18E76E0E00848925 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = AM;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = EgoAleSum;
+				TargetAttributes = {
+					D2957B0218E76E0E00848925 = {
+						TestTargetID = D2957AE118E76E0E00848925;
+					};
+				};
+			};
+			buildConfigurationList = D2957ADD18E76E0E00848925 /* Build configuration list for PBXProject "amaretto-osx" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D2957AD918E76E0E00848925;
+			productRefGroup = D2957AE318E76E0E00848925 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D2957AE118E76E0E00848925 /* amaretto-osx */,
+				D2957B0218E76E0E00848925 /* amaretto-osxTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D2957AE018E76E0E00848925 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2957AF018E76E0E00848925 /* InfoPlist.strings in Resources */,
+				D2957AFE18E76E0E00848925 /* Images.xcassets in Resources */,
+				D2957AF618E76E0E00848925 /* Credits.rtf in Resources */,
+				D2957AFC18E76E0E00848925 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2957B0118E76E0E00848925 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2957B0E18E76E0E00848925 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D2957ADE18E76E0E00848925 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2957B1B18E7718F00848925 /* AMUIController.m in Sources */,
+				D2957B2418E7743300848925 /* AMJSCallback.m in Sources */,
+				D2957B2518E7743300848925 /* JavaScriptCore+AMAdditions.m in Sources */,
+				D2957AF918E76E0E00848925 /* AMAppDelegate.m in Sources */,
+				D2957B2C18E77DF100848925 /* AMCommon.m in Sources */,
+				D2957AF218E76E0E00848925 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2957AFF18E76E0E00848925 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2957B1018E76E0E00848925 /* amaretto_osxTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D2957B0818E76E0E00848925 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D2957AE118E76E0E00848925 /* amaretto-osx */;
+			targetProxy = D2957B0718E76E0E00848925 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D2957AEE18E76E0E00848925 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D2957AEF18E76E0E00848925 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D2957AF418E76E0E00848925 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D2957AF518E76E0E00848925 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		D2957AFA18E76E0E00848925 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D2957AFB18E76E0E00848925 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		D2957B0C18E76E0E00848925 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D2957B0D18E76E0E00848925 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D2957B1118E76E0E00848925 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		D2957B1218E76E0E00848925 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		D2957B1418E76E0E00848925 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "amaretto-osx/amaretto-osx-Prefix.pch";
+				INFOPLIST_FILE = "amaretto-osx/amaretto-osx-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D2957B1518E76E0E00848925 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "amaretto-osx/amaretto-osx-Prefix.pch";
+				INFOPLIST_FILE = "amaretto-osx/amaretto-osx-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		D2957B1718E76E0E00848925 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/amaretto-osx.app/Contents/MacOS/amaretto-osx";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "amaretto-osx/amaretto-osx-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "amaretto-osxTests/amaretto-osxTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		D2957B1818E76E0E00848925 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/amaretto-osx.app/Contents/MacOS/amaretto-osx";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "amaretto-osx/amaretto-osx-Prefix.pch";
+				INFOPLIST_FILE = "amaretto-osxTests/amaretto-osxTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D2957ADD18E76E0E00848925 /* Build configuration list for PBXProject "amaretto-osx" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D2957B1118E76E0E00848925 /* Debug */,
+				D2957B1218E76E0E00848925 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D2957B1318E76E0E00848925 /* Build configuration list for PBXNativeTarget "amaretto-osx" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D2957B1418E76E0E00848925 /* Debug */,
+				D2957B1518E76E0E00848925 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D2957B1618E76E0E00848925 /* Build configuration list for PBXNativeTarget "amaretto-osxTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D2957B1718E76E0E00848925 /* Debug */,
+				D2957B1818E76E0E00848925 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D2957ADA18E76E0E00848925 /* Project object */;
+}
