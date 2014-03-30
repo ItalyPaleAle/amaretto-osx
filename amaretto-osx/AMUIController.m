@@ -39,7 +39,6 @@
 	self.mainWebView.mainFrame.frameView.allowsScrolling = NO;
 	self.mainWebView.UIDelegate = self;
 	self.mainWebView.frameLoadDelegate = self;
-	self.mainWebView.resourceLoadDelegate = self;
 	
 	// Load page
 	NSURL *URL = [[NSBundle mainBundle] URLForResource:@"index" withExtension:@"html" subdirectory:@"ui"];
@@ -112,24 +111,8 @@
 	}
 }
 
-- (NSURLRequest *)webView:(WebView *)sender resource:(id)identifier willSendRequest:(NSURLRequest *)request redirectResponse:(NSURLResponse *)redirectResponse fromDataSource:(WebDataSource *)dataSource
-{
-	NSString *HTTPMethod = [request.HTTPMethod lowercaseString];
-	NSURL *URL = request.URL;
-	if( ([HTTPMethod isEqualToString:@"get"] ||
-		 [HTTPMethod isEqualToString:@"post"]) &&
-	   [URL.scheme isEqualToString:@"http"] &&
-	   [URL.host isEqualToString:@"amaretto.app"])
-	{
-		NSLog(@"Query string: %@", [URL.query decodeHTTPQueryString]);
-		NSLog(@"Body: %@", [[[NSString alloc] initWithData:request.HTTPBody encoding:NSUTF8StringEncoding] decodeHTTPQueryString]);
-		return nil;
-	}
-		
-	return request;
-}
-
-- (void)asyncRequestWithType:(NSString*)type method:(NSString*)method args:(WebScriptObject*)args callback:(WebScriptObject*)callback
+// Async version
+- (void)request:(NSString*)method args:(WebScriptObject*)args callback:(WebScriptObject*)callback
 {
 	JSContextRef ctx = [self.mainWebView.mainFrame globalContext];
 	JSObjectRef argsRef = [args JSObject];
@@ -144,15 +127,19 @@
 	}];
 }
 
-// JavaScript-accessible methods
-- (void)getRequest:(NSString*)method args:(WebScriptObject*)args callback:(WebScriptObject*)callback
+// Sync version
+- (void)syncRequest:(NSString*)method args:(WebScriptObject*)args callback:(WebScriptObject*)callback
 {
-	[self asyncRequestWithType:@"get" method:method args:args callback:callback];
-}
-
-- (void)postRequest:(NSString*)method args:(WebScriptObject*)args callback:(WebScriptObject*)callback
-{
-	[self asyncRequestWithType:@"post" method:method args:args callback:callback];
+	JSContextRef ctx = [self.mainWebView.mainFrame globalContext];
+	JSObjectRef argsRef = [args JSObject];
+	NSDictionary *argsDict = JSObjectToNSDictionary(ctx, argsRef);
+	
+	//[NSThread sleepForTimeInterval:2.0f];
+	
+	AMJSCallback *cb = [AMJSCallback new];
+	cb.callback = callback;
+	cb.data = [self performRequestWithMethod:method args:argsDict];
+	[self executeCallback:cb];
 }
 
 // Web View frame load delegate methods
@@ -165,8 +152,8 @@
 // Scripting
 + (BOOL)isSelectorExcludedFromWebScript:(SEL)sel
 {
-	if(sel == @selector(getRequest:args:callback:) ||
-	   sel == @selector(postRequest:args:callback:))
+	if(sel == @selector(request:args:callback:) ||
+	   sel == @selector(syncRequest:args:callback:))
 	{
 		return NO;
 	}
@@ -175,13 +162,13 @@
 
 +(NSString*)webScriptNameForSelector:(SEL)sel
 {
-	if(sel == @selector(getRequest:args:callback:))
+	if(sel == @selector(request:args:callback:))
 	{
-		return @"get";
+		return @"request";
 	}
-	else if(sel == @selector(postRequest:args:callback:))
+	else if(sel == @selector(syncRequest:args:callback:))
 	{
-		return @"post";
+		return @"syncRequest";
 	}
 	return nil;
 }

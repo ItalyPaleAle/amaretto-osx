@@ -6,14 +6,24 @@
 <script type="text/javascript" src="jquery.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
-	$("#test").text(JSON.stringify(Amaretto))
-	/*Amaretto.get('list', {prova: 'me'}, function(data) {
-		$("#test").text(JSON.stringify(data))
-	})*/
+	var append = function(data) {
+		$("#test").append('<p>'+JSON.stringify(data)+'</p>')
+	}
 	
-	$.post('http://amaretto.app/method', {prova2: 'me2 oppure no?=/'}, function(data) {
-		$("#test").text(JSON.stringify(data))
-	})
+	append(Amaretto)
+	
+	setTimeout(function() {
+		Amaretto.request('list', {test: 'me-async'}, function(data) {
+			append({sync: 0, data: data})
+		})
+	}, 1000)
+	
+	setTimeout(function() {
+		Amaretto.syncRequest('list', {test: '22-sync'}, function(data) {
+			append({sync: 1, data: data})
+		})
+		append({done: 1})
+	}, 2000)
 })
 </script>
 </head>
