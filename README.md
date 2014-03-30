@@ -8,7 +8,8 @@ When you create your application with Amaretto, you are free to build your own H
 Amaretto is extremely lightweight. Unlike solutions that bundle Node.js or WebKit, Amaretto uses a normal Web View and frameworks shipped with OSX.<br/>
 The purpose is to allow creating HTML5 apps that can interact with native code and use C/Obj-C libraries to perform any kind of actions.
 
-Amaretto should work with OSX 10.7 Lion and higher.
+Amaretto should work with OSX 10.7 Lion and higher.<br/>
+The boilerplate uses XCode 5 and the OSX 10.9 Mavericks SDK.
 
 ## Starting up
 
@@ -35,7 +36,7 @@ The HTML5 app can communicate with the native application by making a request. F
 
 There is also a synchronous version of `Amaretto.request`, which supports the same arguments: `Amaretto.syncRequest`.
 
-Each method must be defined in the `amaretto-osx/Routes.plist` file. The key corresponds to the method, while the value must be the name of a class that implements the `AMRouteProtocol`.<br/>
+Each method must be defined in the `Routes/Routes.plist` file. The key corresponds to the method, while the value must be the name of a class that implements the `AMRouteProtocol`.<br/>
 An example can be seen in the file `AMExampleRoute` class.
 
 ## Native -> HTML5
@@ -55,13 +56,8 @@ This method can be executed from Cocoa by simply calling a method on `AMUIContro
 
 You can integrate the Amaretto framework into existing applications.
 
-To do so, you need to include into your project the following classes:
-
-- AMUIController
-- AMJSCallback
-- JavaScriptCore+AMAdditions
-- AMRouteProtocol (header only)
-
-You also need to create a `Routes.plist` file and link your application against the `WebKit` and `JavaScriptCore` frameworks.
-
-Initialize the `AMUIController` object and connect it to a `WebView` in the interface (using the `mainWebView` outlet). Eventually, call the `AMUIController.loadMainUI` method to load the HTML5 app.
+1. Include into your project the files contained into the `UIController` folder.
+2. Create a `Routes.plist` file.
+3. Link your application against the `WebKit` and `JavaScriptCore` frameworks.
+4. Initialize the `AMUIController` object and connect it to a `WebView` in the interface (using the `mainWebView` outlet).
+5. Eventually, call the `AMUIController.loadMainUI` method to load the HTML5 app.

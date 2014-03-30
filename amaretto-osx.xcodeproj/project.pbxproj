@@ -40,10 +40,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D26E9E2318E8A74B0038194F /* AMExampleRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMExampleRoute.h; sourceTree = "<group>"; };
-		D26E9E2418E8A74B0038194F /* AMExampleRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMExampleRoute.m; sourceTree = "<group>"; };
-		D26E9E2618E8B0E50038194F /* AMRouteProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMRouteProtocol.h; sourceTree = "<group>"; };
-		D26E9E2718E8B3BC0038194F /* Routes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Routes.plist; sourceTree = "<group>"; };
+		D26E9E2318E8A74B0038194F /* AMExampleRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMExampleRoute.h; path = Routes/AMExampleRoute.h; sourceTree = "<group>"; };
+		D26E9E2418E8A74B0038194F /* AMExampleRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMExampleRoute.m; path = Routes/AMExampleRoute.m; sourceTree = "<group>"; };
+		D26E9E2618E8B0E50038194F /* AMRouteProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AMRouteProtocol.h; path = UIController/AMRouteProtocol.h; sourceTree = "<group>"; };
+		D26E9E2718E8B3BC0038194F /* Routes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Routes.plist; path = Routes/Routes.plist; sourceTree = "<group>"; };
 		D2957AE218E76E0E00848925 /* amaretto-osx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "amaretto-osx.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2957AE518E76E0E00848925 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		D2957AE818E76E0E00848925 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -63,14 +63,14 @@
 		D2957B0B18E76E0E00848925 /* amaretto-osxTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "amaretto-osxTests-Info.plist"; sourceTree = "<group>"; };
 		D2957B0D18E76E0E00848925 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D2957B0F18E76E0E00848925 /* amaretto_osxTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = amaretto_osxTests.m; sourceTree = "<group>"; };
-		D2957B1918E7718F00848925 /* AMUIController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMUIController.h; sourceTree = "<group>"; };
-		D2957B1A18E7718F00848925 /* AMUIController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMUIController.m; sourceTree = "<group>"; };
+		D2957B1918E7718F00848925 /* AMUIController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMUIController.h; path = UIController/AMUIController.h; sourceTree = "<group>"; };
+		D2957B1A18E7718F00848925 /* AMUIController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMUIController.m; path = UIController/AMUIController.m; sourceTree = "<group>"; };
 		D2957B1C18E7729500848925 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		D2957B1E18E772B500848925 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		D2957B2018E7743300848925 /* AMJSCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMJSCallback.h; sourceTree = "<group>"; };
-		D2957B2118E7743300848925 /* JavaScriptCore+AMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JavaScriptCore+AMAdditions.h"; sourceTree = "<group>"; };
-		D2957B2218E7743300848925 /* AMJSCallback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMJSCallback.m; sourceTree = "<group>"; };
-		D2957B2318E7743300848925 /* JavaScriptCore+AMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JavaScriptCore+AMAdditions.m"; sourceTree = "<group>"; };
+		D2957B2018E7743300848925 /* AMJSCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMJSCallback.h; path = UIController/AMJSCallback.h; sourceTree = "<group>"; };
+		D2957B2118E7743300848925 /* JavaScriptCore+AMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "JavaScriptCore+AMAdditions.h"; path = "UIController/JavaScriptCore+AMAdditions.h"; sourceTree = "<group>"; };
+		D2957B2218E7743300848925 /* AMJSCallback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMJSCallback.m; path = UIController/AMJSCallback.m; sourceTree = "<group>"; };
+		D2957B2318E7743300848925 /* JavaScriptCore+AMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "JavaScriptCore+AMAdditions.m"; path = "UIController/JavaScriptCore+AMAdditions.m"; sourceTree = "<group>"; };
 		D2957B2A18E77DF100848925 /* AMCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMCommon.h; sourceTree = "<group>"; };
 		D2957B2B18E77DF100848925 /* AMCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMCommon.m; sourceTree = "<group>"; };
 		D2957B2D18E785C700848925 /* ui */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ui; sourceTree = "<group>"; };
