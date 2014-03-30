@@ -28,6 +28,8 @@
 
 #import "AMUIController.h"
 
+#import "AMCommon.h"
+
 
 @implementation AMUIController
 
@@ -37,9 +39,10 @@
 	self.mainWebView.mainFrame.frameView.allowsScrolling = NO;
 	self.mainWebView.UIDelegate = self;
 	self.mainWebView.frameLoadDelegate = self;
+	self.mainWebView.resourceLoadDelegate = self;
 	
 	// Load page
-	NSURL *URL = [[NSBundle mainBundle] URLForResource:@"index" withExtension:@"html"];
+	NSURL *URL = [[NSBundle mainBundle] URLForResource:@"index" withExtension:@"html" subdirectory:@"ui"];
 	NSURLRequest *request = [NSURLRequest requestWithURL:URL];
 	
 	[self.mainWebView.mainFrame loadRequest:request];
@@ -79,8 +82,6 @@
 
 - (void)executeCallback:(AMJSCallback*)jscallback
 {
-	//[jscallback retain];
-	
 	JSContextRef ctx = [self.mainWebView.mainFrame globalContext];
 	JSObjectRef ref = [jscallback.callback JSObject];
 	
@@ -109,12 +110,26 @@
 	{
 		JSObjectCallAsFunction(ctx, ref, NULL, 1, &args, NULL);
 	}
-	
-	//[jscallback release];
 }
 
-// JavaScript-accessible methods
-- (void)asyncRequest:(NSString*)method args:(WebScriptObject*)args callback:(WebScriptObject*)callback
+- (NSURLRequest *)webView:(WebView *)sender resource:(id)identifier willSendRequest:(NSURLRequest *)request redirectResponse:(NSURLResponse *)redirectResponse fromDataSource:(WebDataSource *)dataSource
+{
+	NSString *HTTPMethod = [request.HTTPMethod lowercaseString];
+	NSURL *URL = request.URL;
+	if( ([HTTPMethod isEqualToString:@"get"] ||
+		 [HTTPMethod isEqualToString:@"post"]) &&
+	   [URL.scheme isEqualToString:@"http"] &&
+	   [URL.host isEqualToString:@"amaretto.app"])
+	{
+		NSLog(@"Query string: %@", [URL.query decodeHTTPQueryString]);
+		NSLog(@"Body: %@", [[[NSString alloc] initWithData:request.HTTPBody encoding:NSUTF8StringEncoding] decodeHTTPQueryString]);
+		return nil;
+	}
+		
+	return request;
+}
+
+- (void)asyncRequestWithType:(NSString*)type method:(NSString*)method args:(WebScriptObject*)args callback:(WebScriptObject*)callback
 {
 	JSContextRef ctx = [self.mainWebView.mainFrame globalContext];
 	JSObjectRef argsRef = [args JSObject];
@@ -129,6 +144,17 @@
 	}];
 }
 
+// JavaScript-accessible methods
+- (void)getRequest:(NSString*)method args:(WebScriptObject*)args callback:(WebScriptObject*)callback
+{
+	[self asyncRequestWithType:@"get" method:method args:args callback:callback];
+}
+
+- (void)postRequest:(NSString*)method args:(WebScriptObject*)args callback:(WebScriptObject*)callback
+{
+	[self asyncRequestWithType:@"post" method:method args:args callback:callback];
+}
+
 // Web View frame load delegate methods
 - (void)webView:(WebView *)sender didClearWindowObject:(WebScriptObject *)windowScriptObject forFrame:(WebFrame *)frame
 {
@@ -139,7 +165,8 @@
 // Scripting
 + (BOOL)isSelectorExcludedFromWebScript:(SEL)sel
 {
-	if(sel == @selector(asyncRequest:args:callback:))
+	if(sel == @selector(getRequest:args:callback:) ||
+	   sel == @selector(postRequest:args:callback:))
 	{
 		return NO;
 	}
@@ -148,14 +175,18 @@
 
 +(NSString*)webScriptNameForSelector:(SEL)sel
 {
-	if(sel == @selector(asyncRequest:args:callback:))
+	if(sel == @selector(getRequest:args:callback:))
 	{
-		return @"request";
+		return @"get";
+	}
+	else if(sel == @selector(postRequest:args:callback:))
+	{
+		return @"post";
 	}
 	return nil;
 }
 
-// Web View UI delegate methods
+// Disable contextual menu (right click)
 - (NSArray *)webView:(WebView *)sender contextMenuItemsForElement:(NSDictionary *)element defaultMenuItems:(NSArray *)defaultMenuItems
 {
 	return nil;

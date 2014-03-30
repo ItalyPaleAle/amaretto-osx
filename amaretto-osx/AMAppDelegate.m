@@ -28,11 +28,45 @@
 
 #import "AMAppDelegate.h"
 
+#import "AMCommon.h"
+
+
+/*@implementation NSWindow (AMExitFullScreen)
+
+#define kESCKey 27
+- (void)keyDown:(NSEvent *)event
+{
+	if(RequireLionTest)
+	{
+		NSLog(@"aaaa");
+		unichar keyPressed = [[event charactersIgnoringModifiers] characterAtIndex:0];
+		
+		if(keyPressed == kESCKey)
+		{
+			NSApplicationPresentationOptions options = [NSApp currentSystemPresentationOptions];
+			if(options & NSApplicationPresentationFullScreen)
+			{
+				options -= NSApplicationPresentationFullScreen;
+				[NSApp setPresentationOptions:options];
+			}
+		}
+	}
+}
+
+@end*/
+
+
 @implementation AMAppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-	// Insert code here to initialize your application
+	// Enable full-screen
+	self.window.collectionBehavior = NSWindowCollectionBehaviorFullScreenPrimary;
+	
+	AMCommon *common = [AMCommon sharedInstance];
+	common.UIController = self.UIController;
+	
+	[common.UIController loadMainUI];
 }
 
 @end

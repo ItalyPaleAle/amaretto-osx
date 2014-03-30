@@ -28,11 +28,16 @@
 
 #import <Foundation/Foundation.h>
 
+#import "AMUIController.h"
+
 // Singleton class
-@interface AMCommon : NSObject
+@interface AMCommon : NSObject {
+	NSOperationQueue *_operationQueue;
+}
 
 + (AMCommon*)sharedInstance;
 
-@property (retain) NSOperationQueue *operationQueue;
+@property (assign) AMUIController *UIController;
+@property (strong, readonly) NSOperationQueue *operationQueue;
 
 @end

@@ -1,5 +1,5 @@
 /*
- AMAppDelegate.h
+ NSString+AMWebAdditions.m
  amaretto-osx
  
  Copyright (c) 2014 EgoAleSum
@@ -26,14 +26,31 @@
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import <Cocoa/Cocoa.h>
+#import "NSString+AMWebAdditions.h"
 
-@class AMUIController;
+@implementation NSString (AMWebAdditions)
 
+- (NSDictionary*)decodeHTTPQueryString
+{
+	NSMutableDictionary *resultDict = [[NSMutableDictionary alloc] init];
+	NSArray *allParams = [self componentsSeparatedByString:@"&"];
+	
+	for(NSString *param in allParams)
+	{
+		NSArray *comps = [param componentsSeparatedByString:@"="];
+		NSString *key = [[comps objectAtIndex:0] decodeUrlString];
+		NSString *value = [[comps objectAtIndex:1] decodeUrlString];
+		
+		[resultDict setObject:value forKey:key];
+	}
+	
+	return resultDict;
+}
 
-@interface AMAppDelegate : NSObject <NSApplicationDelegate>
-
-@property (assign) IBOutlet NSWindow *window;
-@property (assign) IBOutlet AMUIController *UIController;
+- (NSString*)decodeUrlString
+{
+	return [[self stringByReplacingOccurrencesOfString:@"+" withString:@" "]
+			  stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+}
 
 @end

@@ -659,13 +659,16 @@
                     <webView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="miU-pd-YJY">
                         <rect key="frame" x="0.0" y="0.0" width="589" height="449"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <webPreferences key="preferences" defaultFontSize="12" defaultFixedFontSize="12" javaEnabled="NO"/>
+                        <webPreferences key="preferences" defaultFontSize="12" defaultFixedFontSize="12" javaEnabled="NO">
+                            <nil key="identifier"/>
+                        </webPreferences>
                     </webView>
                 </subviews>
             </view>
         </window>
         <customObject id="494" customClass="AMAppDelegate">
             <connections>
+                <outlet property="UIController" destination="bRe-W8-99f" id="oDg-N6-xrP"/>
                 <outlet property="window" destination="371" id="532"/>
             </connections>
         </customObject>

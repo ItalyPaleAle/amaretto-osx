@@ -30,7 +30,8 @@
 
 @implementation AMCommon
 
-+ (AMCommon*)sharedInstance {
++ (AMCommon*)sharedInstance
+{
 	static AMCommon *sharedInstance = nil;
 	static dispatch_once_t isDispatched;
 	dispatch_once(&isDispatched, ^{
@@ -38,6 +39,17 @@
 	});
 	
 	return sharedInstance;
+}
+
+- (NSOperationQueue*)operationQueue
+{
+	if(!_operationQueue)
+	{
+		_operationQueue = [[NSOperationQueue alloc] init];
+		_operationQueue.maxConcurrentOperationCount = NSOperationQueueDefaultMaxConcurrentOperationCount;
+	}
+	
+	return _operationQueue;
 }
 
 

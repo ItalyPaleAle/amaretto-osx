@@ -1,5 +1,5 @@
 /*
- AMAppDelegate.h
+ NSString+AMWebAdditions.h
  amaretto-osx
  
  Copyright (c) 2014 EgoAleSum
@@ -26,14 +26,11 @@
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import <Cocoa/Cocoa.h>
+#import <Foundation/Foundation.h>
 
-@class AMUIController;
+@interface NSString (AMWebAdditions)
 
-
-@interface AMAppDelegate : NSObject <NSApplicationDelegate>
-
-@property (assign) IBOutlet NSWindow *window;
-@property (assign) IBOutlet AMUIController *UIController;
+- (NSDictionary*)decodeHTTPQueryString;
+- (NSString*)decodeUrlString;
 
 @end

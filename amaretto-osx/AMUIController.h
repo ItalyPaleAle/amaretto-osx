@@ -32,8 +32,7 @@
 
 #import "AMJSCallback.h"
 #import "JavaScriptCore+AMAdditions.h"
-
-#import "AMCommon.h"
+#import "NSString+AMWebAdditions.h"
 
 
 @interface AMUIController : NSObject
@@ -41,8 +40,11 @@
 - (void)loadMainUI;
 
 // Private methods
+- (void)getRequest:(NSString*)method args:(WebScriptObject*)args callback:(WebScriptObject*)callback;
+- (void)postRequest:(NSString*)method args:(WebScriptObject*)args callback:(WebScriptObject*)callback;
+
 - (NSDictionary*)performRequestWithMethod:(NSString*)method args:(NSDictionary*)args;
-- (void)asyncRequest:(NSString*)method args:(WebScriptObject*)args callback:(WebScriptObject*)callback;
+- (void)asyncRequestWithType:(NSString*)type method:(NSString*)method args:(WebScriptObject*)args callback:(WebScriptObject*)callback;
 - (void)executeCallback:(AMJSCallback*)jscallback;
 
 @property (assign) IBOutlet WebView *mainWebView;

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D24E6C2318E7DAD100FC257E /* NSString+AMWebAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D24E6C2218E7DAD100FC257E /* NSString+AMWebAdditions.m */; };
 		D2957AE618E76E0E00848925 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2957AE518E76E0E00848925 /* Cocoa.framework */; };
 		D2957AF018E76E0E00848925 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D2957AEE18E76E0E00848925 /* InfoPlist.strings */; };
 		D2957AF218E76E0E00848925 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D2957AF118E76E0E00848925 /* main.m */; };
@@ -24,6 +25,7 @@
 		D2957B2418E7743300848925 /* AMJSCallback.m in Sources */ = {isa = PBXBuildFile; fileRef = D2957B2218E7743300848925 /* AMJSCallback.m */; };
 		D2957B2518E7743300848925 /* JavaScriptCore+AMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D2957B2318E7743300848925 /* JavaScriptCore+AMAdditions.m */; };
 		D2957B2C18E77DF100848925 /* AMCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = D2957B2B18E77DF100848925 /* AMCommon.m */; };
+		D2957B2E18E785C700848925 /* ui in Resources */ = {isa = PBXBuildFile; fileRef = D2957B2D18E785C700848925 /* ui */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D24E6C2118E7DAD100FC257E /* NSString+AMWebAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+AMWebAdditions.h"; sourceTree = "<group>"; };
+		D24E6C2218E7DAD100FC257E /* NSString+AMWebAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+AMWebAdditions.m"; sourceTree = "<group>"; };
 		D2957AE218E76E0E00848925 /* amaretto-osx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "amaretto-osx.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2957AE518E76E0E00848925 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		D2957AE818E76E0E00848925 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -66,6 +70,7 @@
 		D2957B2318E7743300848925 /* JavaScriptCore+AMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JavaScriptCore+AMAdditions.m"; sourceTree = "<group>"; };
 		D2957B2A18E77DF100848925 /* AMCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMCommon.h; sourceTree = "<group>"; };
 		D2957B2B18E77DF100848925 /* AMCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMCommon.m; sourceTree = "<group>"; };
+		D2957B2D18E785C700848925 /* ui */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ui; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +99,7 @@
 		D2957AD918E76E0E00848925 = {
 			isa = PBXGroup;
 			children = (
+				D2957B2D18E785C700848925 /* ui */,
 				D2957AEB18E76E0E00848925 /* amaretto-osx */,
 				D2957B0918E76E0E00848925 /* amaretto-osxTests */,
 				D2957AE418E76E0E00848925 /* Frameworks */,
@@ -186,6 +192,8 @@
 				D2957B2218E7743300848925 /* AMJSCallback.m */,
 				D2957B2118E7743300848925 /* JavaScriptCore+AMAdditions.h */,
 				D2957B2318E7743300848925 /* JavaScriptCore+AMAdditions.m */,
+				D24E6C2118E7DAD100FC257E /* NSString+AMWebAdditions.h */,
+				D24E6C2218E7DAD100FC257E /* NSString+AMWebAdditions.m */,
 			);
 			name = UIController;
 			sourceTree = "<group>";
@@ -267,6 +275,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2957B2E18E785C700848925 /* ui in Resources */,
 				D2957AF018E76E0E00848925 /* InfoPlist.strings in Resources */,
 				D2957AFE18E76E0E00848925 /* Images.xcassets in Resources */,
 				D2957AF618E76E0E00848925 /* Credits.rtf in Resources */,
@@ -289,6 +298,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D24E6C2318E7DAD100FC257E /* NSString+AMWebAdditions.m in Sources */,
 				D2957B1B18E7718F00848925 /* AMUIController.m in Sources */,
 				D2957B2418E7743300848925 /* AMJSCallback.m in Sources */,
 				D2957B2518E7743300848925 /* JavaScriptCore+AMAdditions.m in Sources */,
