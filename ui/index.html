@@ -5,11 +5,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script type="text/javascript" src="jquery.min.js"></script>
 <script type="text/javascript">
+var append = function(data) {
+	$("#test").append('<p>'+JSON.stringify(data)+'</p>')
+}
+
+Amaretto.setMainCallback(function(message) {
+	append({type: 'received message', message: message})
+})
+
 $(document).ready(function() {
-	var append = function(data) {
-		$("#test").append('<p>'+JSON.stringify(data)+'</p>')
-	}
-	
 	append(Amaretto)
 	
 	Amaretto.request('example.object', {object: 'is object'}, function(data) {
@@ -18,6 +22,10 @@ $(document).ready(function() {
 	
 	Amaretto.request('example.error', {isError: 'error!'}, function(data) {
 		append({sync: 0, data: data})
+	})
+	
+	Amaretto.request('example.delayed', {}, function(data) {
+		append({sync: 0, delayed: 1, data: data})
 	})
 	
 	setTimeout(function() {

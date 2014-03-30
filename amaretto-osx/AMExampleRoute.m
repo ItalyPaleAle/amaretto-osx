@@ -47,6 +47,15 @@
 	{
 		@throw [NSException exceptionWithName:@"RandomError" reason:@"Just random errors here and there" userInfo:nil];
 	}
+	else if([method isEqualToString:@"example.delayed"])
+	{
+		double delayInSeconds = 8.0;
+		dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+		dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+			AMCommon *common = [AMCommon sharedInstance];
+			[common.UIController sendMessage:[NSDictionary dictionaryWithObject:@"delayed" forKey:@"message"]];
+		});
+	}
 	
 	return nil;
 }

@@ -39,13 +39,9 @@
 @interface AMUIController : NSObject
 
 - (void)loadMainUI;
-
-// Private methods
-- (NSDictionary*)performRequestWithMethod:(NSString*)method args:(NSDictionary*)args;
-- (void)request:(NSString*)method args:(WebScriptObject*)args callback:(WebScriptObject*)callback;
-- (void)syncRequest:(NSString*)method args:(WebScriptObject*)args callback:(WebScriptObject*)callback;
-- (void)executeCallback:(AMJSCallback*)jscallback;
+- (void)sendMessage:(NSDictionary*)args;
 
 @property (assign) IBOutlet WebView *mainWebView;
+@property (retain) AMJSCallback *mainCallback; // Receives messages
 
 @end

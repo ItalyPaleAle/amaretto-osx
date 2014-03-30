@@ -31,6 +31,19 @@
 #import "AMCommon.h"
 
 
+@interface AMUIController ()
+
+// Private methods
+- (NSDictionary*)performRequestWithMethod:(NSString*)method args:(NSDictionary*)args;
+- (void)request:(NSString*)method args:(WebScriptObject*)args callback:(WebScriptObject*)callback;
+- (void)syncRequest:(NSString*)method args:(WebScriptObject*)args callback:(WebScriptObject*)callback;
+- (void)executeCallback:(AMJSCallback*)jscallback;
+- (void)setJSMainCallback:(WebScriptObject*)callback;
+
+@end
+
+
+
 @implementation AMUIController
 
 - (void)loadMainUI
@@ -45,6 +58,14 @@
 	NSURLRequest *request = [NSURLRequest requestWithURL:URL];
 	
 	[self.mainWebView.mainFrame loadRequest:request];
+}
+
+- (void)sendMessage:(NSDictionary*)args
+{
+	AMJSCallback *exec = [AMJSCallback new];
+	exec.callback = self.mainCallback.callback;
+	exec.data = args;
+	[self performSelectorOnMainThread:@selector(executeCallback:) withObject:exec waitUntilDone:NO];
 }
 
 - (NSDictionary*)performRequestWithMethod:(NSString*)method args:(NSDictionary*)args
@@ -109,10 +130,8 @@
 					   encoding:NSUTF8StringEncoding];
 	}
 	
-	CFStringRef foundationString = (__bridge_retained CFStringRef)stringValue;
-	JSStringRef string = JSStringCreateWithCFString(foundationString);
+	JSStringRef string = JSStringCreateWithCFString((__bridge CFStringRef)stringValue);
 	JSValueRef args = JSValueMakeFromJSONString(ctx, string);
-	CFRelease(foundationString);
 	
 	if(args)
 	{
@@ -148,7 +167,16 @@
 	AMJSCallback *cb = [AMJSCallback new];
 	cb.callback = callback;
 	cb.data = [self performRequestWithMethod:method args:argsDict];
-	[self executeCallback:cb];
+	[self performSelectorOnMainThread:@selector(executeCallback:) withObject:cb waitUntilDone:NO];
+}
+
+- (void)setJSMainCallback:(WebScriptObject*)callback
+{
+	AMJSCallback *cb = [AMJSCallback new];
+	cb.callback = callback;
+	cb.data = nil;
+	
+	self.mainCallback = cb;
 }
 
 // Web View frame load delegate methods
@@ -162,7 +190,8 @@
 + (BOOL)isSelectorExcludedFromWebScript:(SEL)sel
 {
 	if(sel == @selector(request:args:callback:) ||
-	   sel == @selector(syncRequest:args:callback:))
+	   sel == @selector(syncRequest:args:callback:) ||
+	   sel == @selector(setJSMainCallback:))
 	{
 		return NO;
 	}
@@ -178,6 +207,10 @@
 	else if(sel == @selector(syncRequest:args:callback:))
 	{
 		return @"syncRequest";
+	}
+	else if(sel == @selector(setJSMainCallback:))
+	{
+		return @"setMainCallback";
 	}
 	return nil;
 }

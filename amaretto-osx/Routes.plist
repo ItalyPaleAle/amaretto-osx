@@ -10,5 +10,7 @@
 	<string>AMExampleRoute</string>
 	<key>example.error</key>
 	<string>AMExampleRoute</string>
+	<key>example.delayed</key>
+	<string>AMExampleRoute</string>
 </dict>
 </plist>

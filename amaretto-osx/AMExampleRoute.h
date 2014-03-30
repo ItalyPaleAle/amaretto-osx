@@ -28,6 +28,7 @@
 
 #import <Foundation/Foundation.h>
 
+#import "AMCommon.h"
 #import "AMRouteProtocol.h"
 
 @interface AMExampleRoute : NSObject <AMRouteProtocol>
