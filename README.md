@@ -17,7 +17,9 @@ This repository contains the Amaretto framework and a boilerplate you can use to
 
 Start by checking out the repository:
 
-    git clone git@github.com:EgoAleSum/amaretto-osx.git
+```sh
+git clone git@github.com:EgoAleSum/amaretto-osx.git
+```
 
 You can store your HTML5 app inside the _ui/_ folder. The only restriction is that the main file has to be called _index.html_.
 
@@ -25,12 +27,14 @@ You can store your HTML5 app inside the _ui/_ folder. The only restriction is th
 
 The HTML5 app can communicate with the native application by making a request. For example:
 
-    Amaretto.request('method', {param1: 'val1', param2: 'val2'}, function(response) {
-		if(response.error)
-            // Error is inside response.errorString
-        else
-            // Content is inside response.data
-	})
+```js
+Amaretto.request('method', {param1: 'val1', param2: 'val2'}, function(response) {
+	if(response.error)
+        // Error is inside response.errorString
+    else
+        // Content is inside response.data
+})
+```
 
 `response` is a JavaScript object that contains three keys: `error` (a string or the integer 0 if everything is correct), `errorString` (human-readable description; empty if there was no error) and `data` (the payload).
 
@@ -43,14 +47,18 @@ An example can be seen in the file `AMExampleRoute` class.
 
 Amaretto allows native apps to send messages to the HTML5 app. To do so, the HTML5 app first needs to register a callback that receives messages:
 
-    Amaretto.setMainCallback(function(message) {
-        // Perform some actions
-    })
+```js
+Amaretto.setMainCallback(function(message) {
+    // Perform some actions
+})
+```
 
 This method can be executed from Cocoa by simply calling a method on `AMUIController`:
 
-    AMCommon *common = [AMCommon sharedInstance];
-    [common.UIController sendMessage:[NSDictionary dictionaryWithObject:@"value" forKey:@"key"]];
+```objc
+AMCommon *common = [AMCommon sharedInstance];
+[common.UIController sendMessage:[NSDictionary dictionaryWithObject:@"value" forKey:@"key"]];
+```
 
 ## Framework only
 
