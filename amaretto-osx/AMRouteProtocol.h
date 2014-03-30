@@ -1,5 +1,5 @@
 /*
- AMUIController.h
+ AMRouteProtocol.h
  amaretto-osx
  
  Copyright (c) 2014 EgoAleSum
@@ -26,26 +26,10 @@
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import <Cocoa/Cocoa.h>
-#import <WebKit/WebKit.h>
-#import <JavaScriptCore/JavaScriptCore.h>
+#import <Foundation/Foundation.h>
 
-#import "AMJSCallback.h"
-#import "JavaScriptCore+AMAdditions.h"
+@protocol AMRouteProtocol <NSObject>
 
-#import "AMRouteProtocol.h"
-
-
-@interface AMUIController : NSObject
-
-- (void)loadMainUI;
-
-// Private methods
-- (NSDictionary*)performRequestWithMethod:(NSString*)method args:(NSDictionary*)args;
-- (void)request:(NSString*)method args:(WebScriptObject*)args callback:(WebScriptObject*)callback;
-- (void)syncRequest:(NSString*)method args:(WebScriptObject*)args callback:(WebScriptObject*)callback;
-- (void)executeCallback:(AMJSCallback*)jscallback;
-
-@property (assign) IBOutlet WebView *mainWebView;
+- (id<NSObject>)executeMethod:(NSString*)method withArgs:(NSDictionary*)args;
 
 @end

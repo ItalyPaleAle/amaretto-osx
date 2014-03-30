@@ -49,31 +49,40 @@
 
 - (NSDictionary*)performRequestWithMethod:(NSString*)method args:(NSDictionary*)args
 {
-	int error = 0;
+	NSString *error = nil;
 	NSString *errorString = @"";
-	NSDictionary *payload = nil;
+	id<NSObject> payload = nil;
 	
 	@try
 	{
-		if([method isEqualToString:@"list"])
+		NSString *routesFile = [[NSBundle mainBundle] pathForResource:@"Routes" ofType:@"plist"];
+		NSDictionary *routes = [NSDictionary dictionaryWithContentsOfFile:routesFile];
+		
+		NSString *className = [routes objectForKey:method];
+		if(!className || [className isEqualToString:@""])
 		{
-			payload = [NSDictionary dictionaryWithObject:@"bar" forKey:@"foo"]; //getConversationList(args);
+			@throw [NSException exceptionWithName:@"RoutingError" reason:@"Request method not defined" userInfo:nil];
 		}
-		else
+		
+		id<AMRouteProtocol> routeObj = [NSClassFromString(className) new];
+		if(!routeObj)
 		{
-			@throw [NSException exceptionWithName:@"Internal error" reason:@"Invalid request method" userInfo:nil];
+			@throw [NSException exceptionWithName:@"RoutingError" reason:[NSString stringWithFormat:@"Class %@ not existing", className, nil] userInfo:nil];
 		}
+		
+		payload = [routeObj executeMethod:method withArgs:args];
 	}
 	@catch (NSException *exception)
 	{
-		error = 1;
+		error = exception.name;
 		errorString = exception.reason;
 		payload = nil;
 	}
 	
-	NSDictionary *result = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:error], @"error",
-							errorString, @"errorString",
-							payload, @"payload",
+	NSDictionary *result = [NSDictionary dictionaryWithObjectsAndKeys:
+							(error ? error : [NSNumber numberWithInt:0]), @"error",
+							(errorString ? errorString : @""), @"errorString",
+							(payload ? payload : [NSDictionary dictionary]), @"data",
 							nil];
 		
 	return result;

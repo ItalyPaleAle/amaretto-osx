@@ -1,5 +1,5 @@
 /*
- AMUIController.h
+ AMExampleRoute.h
  amaretto-osx
  
  Copyright (c) 2014 EgoAleSum
@@ -26,26 +26,29 @@
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import <Cocoa/Cocoa.h>
-#import <WebKit/WebKit.h>
-#import <JavaScriptCore/JavaScriptCore.h>
-
-#import "AMJSCallback.h"
-#import "JavaScriptCore+AMAdditions.h"
-
-#import "AMRouteProtocol.h"
+#import "AMExampleRoute.h"
 
 
-@interface AMUIController : NSObject
+@implementation AMExampleRoute
 
-- (void)loadMainUI;
-
-// Private methods
-- (NSDictionary*)performRequestWithMethod:(NSString*)method args:(NSDictionary*)args;
-- (void)request:(NSString*)method args:(WebScriptObject*)args callback:(WebScriptObject*)callback;
-- (void)syncRequest:(NSString*)method args:(WebScriptObject*)args callback:(WebScriptObject*)callback;
-- (void)executeCallback:(AMJSCallback*)jscallback;
-
-@property (assign) IBOutlet WebView *mainWebView;
+- (id<NSObject>)executeMethod:(NSString*)method withArgs:(NSDictionary*)args
+{
+	if([method isEqualToString:@"example"] || [method isEqualToString:@"example.string"])
+	{
+		return [[NSString alloc]
+				initWithData:[NSJSONSerialization dataWithJSONObject:args options:0 error:NULL]
+				encoding:NSUTF8StringEncoding];
+	}
+	else if([method isEqualToString:@"example.object"])
+	{
+		return args;
+	}
+	else if([method isEqualToString:@"example.error"])
+	{
+		@throw [NSException exceptionWithName:@"RandomError" reason:@"Just random errors here and there" userInfo:nil];
+	}
+	
+	return nil;
+}
 
 @end

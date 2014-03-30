@@ -656,7 +656,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="589" height="449"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <webView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="miU-pd-YJY">
+                    <webView translatesAutoresizingMaskIntoConstraints="NO" id="miU-pd-YJY">
                         <rect key="frame" x="0.0" y="0.0" width="589" height="449"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <webPreferences key="preferences" defaultFontSize="12" defaultFixedFontSize="12" javaEnabled="NO">
@@ -664,6 +664,12 @@
                         </webPreferences>
                     </webView>
                 </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="miU-pd-YJY" secondAttribute="trailing" id="5RA-Bx-Lv5"/>
+                    <constraint firstAttribute="bottom" secondItem="miU-pd-YJY" secondAttribute="bottom" id="Tm4-Dl-UU5"/>
+                    <constraint firstItem="miU-pd-YJY" firstAttribute="top" secondItem="372" secondAttribute="top" id="U4B-fy-b9G"/>
+                    <constraint firstItem="miU-pd-YJY" firstAttribute="leading" secondItem="372" secondAttribute="leading" id="jCM-Od-hO0"/>
+                </constraints>
             </view>
         </window>
         <customObject id="494" customClass="AMAppDelegate">

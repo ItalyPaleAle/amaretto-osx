@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>example</key>
+	<string>AMExampleRoute</string>
+	<key>example.string</key>
+	<string>AMExampleRoute</string>
+	<key>example.object</key>
+	<string>AMExampleRoute</string>
+	<key>example.error</key>
+	<string>AMExampleRoute</string>
+</dict>
+</plist>

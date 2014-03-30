@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D26E9E2518E8A74B0038194F /* AMExampleRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = D26E9E2418E8A74B0038194F /* AMExampleRoute.m */; };
+		D26E9E2818E8B3BC0038194F /* Routes.plist in Resources */ = {isa = PBXBuildFile; fileRef = D26E9E2718E8B3BC0038194F /* Routes.plist */; };
 		D2957AE618E76E0E00848925 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2957AE518E76E0E00848925 /* Cocoa.framework */; };
 		D2957AF018E76E0E00848925 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D2957AEE18E76E0E00848925 /* InfoPlist.strings */; };
 		D2957AF218E76E0E00848925 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D2957AF118E76E0E00848925 /* main.m */; };
@@ -38,6 +40,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D26E9E2318E8A74B0038194F /* AMExampleRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMExampleRoute.h; sourceTree = "<group>"; };
+		D26E9E2418E8A74B0038194F /* AMExampleRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMExampleRoute.m; sourceTree = "<group>"; };
+		D26E9E2618E8B0E50038194F /* AMRouteProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMRouteProtocol.h; sourceTree = "<group>"; };
+		D26E9E2718E8B3BC0038194F /* Routes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Routes.plist; sourceTree = "<group>"; };
 		D2957AE218E76E0E00848925 /* amaretto-osx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "amaretto-osx.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2957AE518E76E0E00848925 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		D2957AE818E76E0E00848925 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -93,6 +99,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D26E9E2218E8A5430038194F /* Routes */ = {
+			isa = PBXGroup;
+			children = (
+				D26E9E2718E8B3BC0038194F /* Routes.plist */,
+				D26E9E2318E8A74B0038194F /* AMExampleRoute.h */,
+				D26E9E2418E8A74B0038194F /* AMExampleRoute.m */,
+			);
+			name = Routes;
+			sourceTree = "<group>";
+		};
 		D2957AD918E76E0E00848925 = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +154,7 @@
 		D2957AEB18E76E0E00848925 /* amaretto-osx */ = {
 			isa = PBXGroup;
 			children = (
+				D26E9E2218E8A5430038194F /* Routes */,
 				D2957B2618E7743900848925 /* UIController */,
 				D2957AF718E76E0E00848925 /* AMAppDelegate.h */,
 				D2957AF818E76E0E00848925 /* AMAppDelegate.m */,
@@ -189,6 +206,7 @@
 				D2957B2218E7743300848925 /* AMJSCallback.m */,
 				D2957B2118E7743300848925 /* JavaScriptCore+AMAdditions.h */,
 				D2957B2318E7743300848925 /* JavaScriptCore+AMAdditions.m */,
+				D26E9E2618E8B0E50038194F /* AMRouteProtocol.h */,
 			);
 			name = UIController;
 			sourceTree = "<group>";
@@ -270,6 +288,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D26E9E2818E8B3BC0038194F /* Routes.plist in Resources */,
 				D2957B2E18E785C700848925 /* ui in Resources */,
 				D2957AF018E76E0E00848925 /* InfoPlist.strings in Resources */,
 				D2957AFE18E76E0E00848925 /* Images.xcassets in Resources */,
@@ -294,6 +313,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2957B1B18E7718F00848925 /* AMUIController.m in Sources */,
+				D26E9E2518E8A74B0038194F /* AMExampleRoute.m in Sources */,
 				D2957B2418E7743300848925 /* AMJSCallback.m in Sources */,
 				D2957B2518E7743300848925 /* JavaScriptCore+AMAdditions.m in Sources */,
 				D2957AF918E76E0E00848925 /* AMAppDelegate.m in Sources */,

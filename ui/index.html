@@ -12,14 +12,22 @@ $(document).ready(function() {
 	
 	append(Amaretto)
 	
+	Amaretto.request('example.object', {object: 'is object'}, function(data) {
+		append({sync: 0, data: data})
+	})
+	
+	Amaretto.request('example.error', {isError: 'error!'}, function(data) {
+		append({sync: 0, data: data})
+	})
+	
 	setTimeout(function() {
-		Amaretto.request('list', {test: 'me-async'}, function(data) {
+		Amaretto.request('example', {test: 'me-async'}, function(data) {
 			append({sync: 0, data: data})
 		})
 	}, 1000)
 	
 	setTimeout(function() {
-		Amaretto.syncRequest('list', {test: '22-sync'}, function(data) {
+		Amaretto.syncRequest('example.string', {test: '22-sync'}, function(data) {
 			append({sync: 1, data: data})
 		})
 		append({done: 1})
